@@ -17,27 +17,28 @@ export default function calcGame() {
   for (let i = 0; i < 3;) {
     const randomInt1 = getRandomInt(0, 10);
     const randomInt2 = getRandomInt(0, 10);
-    const randomElem = _.sample(["+", "-", "*"]);
+    const randomElem = _.sample(['+', '-', '*']);
 
     const answer = readlineSync.question(`Question: ${randomInt1} ${randomElem} ${randomInt2}\nYour answer: `);
 
     let correctAnswer;
 
-	 if (randomElem === '+') {
-		correctAnswer = randomInt1 + randomInt2;
-	 } else if (randomElem === '-') {
-		correctAnswer = randomInt1 - randomInt2;
-	 } else if (randomElem === '*') {
-		correctAnswer = randomInt1 * randomInt2;
-	 }
+    if (randomElem === '+') {
+      correctAnswer = randomInt1 + randomInt2;
+    } else if (randomElem === '-') {
+      correctAnswer = randomInt1 - randomInt2;
+    } else if (randomElem === '*') {
+      correctAnswer = randomInt1 * randomInt2;
+    }
 
-	 if (Number(correctAnswer) === Number(answer)) {
-		console.log("Correct!");
-		i += 1;
-	 } else {
-		console.log(`"${answer}" is wrong answer ;(. Correct answer was "${correctAnswer}"`);
-		i = 0;
-	 }
-	}
-	console.log(`Congratulations, ${name}!`);
+    if (Number(correctAnswer) === Number(answer)) {
+      console.log('Correct!');
+      i += 1;
+    } else {
+      console.log(`"${answer}" is wrong answer ;(. Correct answer was "${correctAnswer}"`);
+      console.log(`Let's try again, ${name}!`);
+      i = 0;
+    }
+  }
+  console.log(`Congratulations, ${name}!`);
 }
