@@ -2,4 +2,4 @@
 
 import questionIsEvenNum from '../src/even.js';
 
-console.log(questionIsEvenNum());
+questionIsEvenNum();
