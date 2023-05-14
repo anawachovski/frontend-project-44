@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import questionIsEvenNum from '../src/even.js';
+import even from '../src/games/evenF.js';
 
-questionIsEvenNum();
+even();

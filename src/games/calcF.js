@@ -27,7 +27,7 @@ export default function calc() {
         result = null;
     }
 
-    return [question, result];
+    return [question, String(result)];
   };
 
   brainBasisGame(noteCalc, taskCalc);

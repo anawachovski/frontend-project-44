@@ -15,7 +15,7 @@ export default function brainBasisGame(note, task) {
     const pairOfQuestionResult = task();
     console.log(`Question: ${pairOfQuestionResult[0]}`);
 
-    const userAnswer = Number(readlineSync.question('Your answer: '));
+    const userAnswer = (readlineSync.question('Your answer: '));
     const correctAnswer = pairOfQuestionResult[1];
 
     // Сравниваем ответ пользователя с верным ответом
