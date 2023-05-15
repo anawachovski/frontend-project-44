@@ -5,3 +5,4 @@
 ##### [Демонстрация игры "Калькулятор"](https://asciinema.org/a/ci3NwgrZbzvVbW1EAfwXbz0CN)
 ##### [Демонстрация игры "НОД"](https://asciinema.org/a/4ei0HzgWbBjCPbEkjNv4Fis3l)
 ##### [Демонстрация игры "Арифметическая прогрессия"](https://asciinema.org/a/qu5hIoVW9d0TxtELFEJPiFDM0)
+##### [Демонстрация игры "Простое ли число?"](https://asciinema.org/a/cPetasKuUFzn6pIhjAp4DLqoO)
