@@ -2,10 +2,10 @@ import getRandomArr from '../getRandomArr.js';
 import getRandomInt from '../getRandomInt.js';
 import brainBasisGame from '../index.js';
 
-export default function progression() {
-  const noteProg = 'What number is missing in the progression?';
+export default function startProgressionGame() {
+  const questionProgression = 'What number is missing in the progression?';
 
-  const taskProg = () => {
+  const taskProgression = () => {
     const correctArr = getRandomArr(); // Генерируем массив
     // const correctStr = correctArr.join(' ');
     const len = correctArr.length - 1;
@@ -21,5 +21,5 @@ export default function progression() {
     return [question, String(result)];
   };
 
-  brainBasisGame(noteProg, taskProg);
+  brainBasisGame(questionProgression, taskProgression);
 }
