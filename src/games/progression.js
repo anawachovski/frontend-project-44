@@ -1,15 +1,27 @@
-import getRandomArr from '../getRandomArr.js';
-import getRandomInt from '../getRandomInt.js';
+import getRandomNumber from '../utils.js';
 import brainBasisGame from '../index.js';
 
 export default function startProgressionGame() {
   const questionProgression = 'What number is missing in the progression?';
+  
+  // Функция генерирующая рандомный массив
+  const getRandomArray = () => {
+    const arr = [];
+    arr[0] = getRandomNumber(5, 20); // Первый рандомный элемент массива
+    const randomDiff = getRandomNumber(5, 20); // Разница между элементами массива
+
+    for (let i = 1; i < 10; i += 1) {
+      arr[i] = arr[i - 1] + randomDiff;
+    }
+
+    return arr;
+  };
 
   const taskProgression = () => {
-    const correctArr = getRandomArr(); // Генерируем массив
-    // const correctStr = correctArr.join(' ');
+    const correctArr = getRandomArray(); // Генерируем массив
+
     const len = correctArr.length - 1;
-    const randomIndex = getRandomInt(0, len); // Генерируем случайный индекс элемента массива
+    const randomIndex = getRandomNumber(0, len); // Генерируем случайный индекс элемента массива
 
     const safeIndex = correctArr[randomIndex]; // Сохраняем в переменную значение рандомного индекса
     correctArr[randomIndex] = '..'; // Заменяем его на ..

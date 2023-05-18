@@ -1,12 +1,12 @@
-import getRandomInt from '../getRandomInt.js';
+import getRandomNumber from '../utils.js';
 import brainBasisGame from '../index.js';
 
-export default function gcd() {
+export default function startGcdGame() {
   const noteGcd = 'Find the greatest common divisor of given numbers.';
 
   const taskGcd = () => {
-    let num1 = getRandomInt(0, 100);
-    let num2 = getRandomInt(0, 100);
+    let num1 = getRandomNumber(0, 100);
+    let num2 = getRandomNumber(0, 100);
 
     const question = `${num1} ${num2}`;
 

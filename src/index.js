@@ -11,12 +11,13 @@ export default function brainBasisGame(note, task) {
   console.log(note);
 
   // Цикл игры(3 раунда)
-  for (let i = 0; i < 3; i += 1) {
-    const pairOfQuestionResult = task();
-    console.log(`Question: ${pairOfQuestionResult[0]}`);
+  const roundsCount = 3;
+  for (let i = 0; i < roundsCount; i += 1) {
+    const [question, result] = task();
+    console.log(`Question: ${question}`);
 
     const userAnswer = (readlineSync.question('Your answer: '));
-    const correctAnswer = pairOfQuestionResult[1];
+    const correctAnswer = result;
 
     // Сравниваем ответ пользователя с верным ответом
     if (userAnswer === correctAnswer) {

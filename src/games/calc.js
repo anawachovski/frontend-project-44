@@ -1,13 +1,13 @@
 import _ from 'lodash';
 import brainBasisGame from '../index.js';
-import getRandomInt from '../getRandomInt.js';
+import getRandomNumber from '../utils.js';
 
-export default function calc() {
-  const noteCalc = 'What is the result of the expression?';
+export default function startCalcGame() {
+  const questionCalc = 'What is the result of the expression?';
 
   const taskCalc = () => {
-    const randomInt1 = getRandomInt(0, 10);
-    const randomInt2 = getRandomInt(0, 10);
+    const randomInt1 = getRandomNumber(0, 10);
+    const randomInt2 = getRandomNumber(0, 10);
     const randomElem = _.sample(['+', '-', '*']);
 
     const question = `${randomInt1} ${randomElem} ${randomInt2}`;
@@ -24,11 +24,11 @@ export default function calc() {
         result = randomInt1 * randomInt2;
         break;
       default:
-        result = null;
+			throw new Error(`Unknown element: '${randomElem}'!`);
     }
 
     return [question, String(result)];
   };
 
-  brainBasisGame(noteCalc, taskCalc);
+  brainBasisGame(questionCalc, taskCalc);
 }

@@ -1,27 +1,22 @@
-import getRandomInt from '../getRandomInt.js';
-import isEvenNum from '../isEvenNum.js';
+import getRandomNumber from '../utils.js';
 import brainBasisGame from '../index.js';
 
-export default function even() {
+export default function startEvenGame() {
   const noteEven = 'Answer "yes" if the number is even, otherwise answer "no".';
+  
+  const isEvenNum = (num) => {
+    if (num % 2 === 0) {
+		return true;
+	 }
+  }
 
   const taskEven = () => {
-    const randomInt = getRandomInt(0, 10001);
+    const randomInt = getRandomNumber(0, 10001);
     const evenNum = isEvenNum(randomInt);
 
     const question = `${randomInt}`;
-
-    let result = '';
-    switch (evenNum) {
-      case true:
-        result = 'yes';
-        break;
-      case false:
-        result = 'no';
-        break;
-      default:
-        result = null;
-    }
+    
+    const result = evenNum ? 'yes' : 'no';
 
     return [question, result];
   };
