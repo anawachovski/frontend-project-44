@@ -3,7 +3,7 @@ import brainBasisGame from '../index.js';
 
 export default function startProgressionGame() {
   const questionProgression = 'What number is missing in the progression?';
-  
+
   // Функция генерирующая рандомный массив
   const getRandomArray = () => {
     const arr = [];

@@ -10,7 +10,7 @@ export default function startCalcGame() {
 
     const randomIndex = getRandomNumber(0, 3);
     const elements = ['+', '-', '*'];
-	 const randomElem = elements[randomIndex];
+    const randomElem = elements[randomIndex];
 
     const question = `${randomInt1} ${randomElem} ${randomInt2}`;
 
@@ -26,7 +26,7 @@ export default function startCalcGame() {
         result = randomInt1 * randomInt2;
         break;
       default:
-			throw new Error(`Unknown element: '${randomElem}'!`);
+        throw new Error(`Unknown element: '${randomElem}'!`);
     }
 
     return [question, String(result)];
