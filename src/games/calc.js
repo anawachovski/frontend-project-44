@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import brainBasisGame from '../index.js';
 import getRandomNumber from '../utils.js';
 
@@ -8,7 +7,10 @@ export default function startCalcGame() {
   const taskCalc = () => {
     const randomInt1 = getRandomNumber(0, 10);
     const randomInt2 = getRandomNumber(0, 10);
-    const randomElem = _.sample(['+', '-', '*']);
+
+    const randomIndex = getRandomNumber(0, 3);
+    const elements = ['+', '-', '*'];
+	 const randomElem = elements[randomIndex];
 
     const question = `${randomInt1} ${randomElem} ${randomInt2}`;
 
