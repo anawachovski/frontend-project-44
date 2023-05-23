@@ -11,9 +11,9 @@ export default function startGcdGame() {
     const question = `${num1} ${num2}`;
 
     let result = 0;
-	 if (num1 === 0 || num2 === 0) {
-		result = 1;
-	 }
+    if (num1 === 0 || num2 === 0) {
+      result = 1;
+    }
     while (num1 !== 0 && num2 !== 0) {
       if (num1 > num2) {
         num1 %= num2;
