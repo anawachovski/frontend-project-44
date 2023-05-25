@@ -2,9 +2,9 @@ import getRandomNumber from '../utils.js';
 import brainBasisGame from '../index.js';
 
 export default function startGcdGame() {
-  const noteGcd = 'Find the greatest common divisor of given numbers.';
+  const description = 'Find the greatest common divisor of given numbers.';
 
-  const taskGcd = () => {
+  const rounds = () => {
     let num1 = getRandomNumber(0, 100);
     let num2 = getRandomNumber(0, 100);
 
@@ -23,9 +23,10 @@ export default function startGcdGame() {
 
       result = num1 + num2;
     }
+    const correctAnswer = String(result);
 
-    return [question, String(result)];
+    return [question, correctAnswer];
   };
 
-  brainBasisGame(noteGcd, taskGcd);
+  brainBasisGame(description, rounds);
 }

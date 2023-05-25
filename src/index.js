@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 
-export default function brainBasisGame(note, task) {
+export default function brainBasisGame(description, task) {
   // Приветствие
   console.log('Welcome to the Brain Games!');
 
@@ -8,7 +8,7 @@ export default function brainBasisGame(note, task) {
   console.log(`Hello, ${name}!`);
 
   // Вывод задания игры
-  console.log(note);
+  console.log(description);
 
   // Цикл игры(3 раунда)
   const roundsCount = 3;

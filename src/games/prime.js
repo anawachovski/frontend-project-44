@@ -2,7 +2,7 @@ import getRandomNumber from '../utils.js';
 import brainBasisGame from '../index.js';
 
 export default function startPrimeGame() {
-  const notePrime = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
   const isPrimeNum = (num) => {
     for (let i = 2; i < num; i += 1) {
@@ -11,16 +11,15 @@ export default function startPrimeGame() {
     return num !== 1;
   };
 
-  const taskPrime = () => {
+  const rounds = () => {
     const randomInt = getRandomNumber(0, 102);
-    const primeNum = isPrimeNum(randomInt);
 
     const question = `${randomInt}`;
 
-    const result = primeNum ? 'yes' : 'no';
+    const correctAnswer = isPrimeNum(randomInt) ? 'yes' : 'no';
 
-    return [question, result];
+    return [question, correctAnswer];
   };
 
-  brainBasisGame(notePrime, taskPrime);
+  brainBasisGame(description, rounds);
 }

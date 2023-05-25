@@ -2,9 +2,21 @@ import brainBasisGame from '../index.js';
 import getRandomNumber from '../utils.js';
 
 export default function startCalcGame() {
-  const questionCalc = 'What is the result of the expression?';
+  const description = 'What is the result of the expression?';
 
-  const taskCalc = () => {
+  const rounds = () => {
+    function chooseElement(randomInt1, randomInt2, randomElem) {
+      switch (randomElem) {
+        case '+':
+          return randomInt1 + randomInt2;
+        case '-':
+          return randomInt1 - randomInt2;
+        case '*':
+          return randomInt1 * randomInt2;
+        default:
+          throw new Error(`Unknown element: '${randomElem}'!`);
+      }
+    }
     const randomInt1 = getRandomNumber(0, 10);
     const randomInt2 = getRandomNumber(0, 10);
 
@@ -14,23 +26,10 @@ export default function startCalcGame() {
 
     const question = `${randomInt1} ${randomElem} ${randomInt2}`;
 
-    let result = 0;
-    switch (randomElem) {
-      case '+':
-        result = randomInt1 + randomInt2;
-        break;
-      case '-':
-        result = randomInt1 - randomInt2;
-        break;
-      case '*':
-        result = randomInt1 * randomInt2;
-        break;
-      default:
-        throw new Error(`Unknown element: '${randomElem}'!`);
-    }
+    const correctAnswer = String(chooseElement(randomInt1, randomInt2, randomElem));
 
-    return [question, String(result)];
+    return [question, correctAnswer];
   };
 
-  brainBasisGame(questionCalc, taskCalc);
+  brainBasisGame(description, rounds);
 }

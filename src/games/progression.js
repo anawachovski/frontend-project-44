@@ -2,24 +2,26 @@ import getRandomNumber from '../utils.js';
 import brainBasisGame from '../index.js';
 
 export default function startProgressionGame() {
-  const questionProgression = 'What number is missing in the progression?';
+  const description = 'What number is missing in the progression?';
 
   // Функция генерирующая рандомный массив
-  const getRandomArray = () => {
-    const arr = [];
-    arr[0] = getRandomNumber(5, 20); // Первый рандомный элемент массива
-    const randomDiff = getRandomNumber(5, 20); // Разница между элементами массива
+  const getRandomProgression = (firstNumberOfArray, stepOfProgression, numberOfSteps) => {
+    const randomArrayProgression = [];
+    randomArrayProgression[0] = firstNumberOfArray; // Первый элемент массива
 
-    for (let i = 1; i < 10; i += 1) {
-      arr[i] = arr[i - 1] + randomDiff;
+    for (let i = 1; i <= numberOfSteps; i += 1) {
+      randomArrayProgression[i] = randomArrayProgression[i - 1] + stepOfProgression;
     }
 
-    return arr;
+    return randomArrayProgression;
   };
 
-  const taskProgression = () => {
-    const correctArr = getRandomArray(); // Генерируем массив
+  const rounds = () => {
+    const firstNumberOfArray = getRandomNumber(0, 100);
+    const stepOfProgression = getRandomNumber(1, 20);
+    const numberOfSteps = 9;
 
+    const correctArr = getRandomProgression(firstNumberOfArray, stepOfProgression, numberOfSteps);
     const len = correctArr.length - 1;
     const randomIndex = getRandomNumber(0, len); // Генерируем случайный индекс элемента массива
 
@@ -28,10 +30,10 @@ export default function startProgressionGame() {
 
     const question = `${correctArr.join(' ')}`;
 
-    const result = safeIndex;
+    const correctAnswer = String(safeIndex);
 
-    return [question, String(result)];
+    return [question, correctAnswer];
   };
 
-  brainBasisGame(questionProgression, taskProgression);
+  brainBasisGame(description, rounds);
 }
