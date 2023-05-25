@@ -14,6 +14,7 @@ export default function startGcdGame() {
     if (num1 === 0 || num2 === 0) {
       result = 1;
     }
+
     while (num1 !== 0 && num2 !== 0) {
       if (num1 > num2) {
         num1 %= num2;
@@ -23,9 +24,8 @@ export default function startGcdGame() {
 
       result = num1 + num2;
     }
-    const correctAnswer = String(result);
 
-    return [question, correctAnswer];
+    return [question, String(result)];
   };
 
   brainBasisGame(description, rounds);
