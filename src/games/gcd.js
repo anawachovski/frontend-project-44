@@ -8,8 +8,10 @@ const getGreatestCommonDivisor = (number1, number2) => {
   let num2 = number2;
   let result = 0;
 
-  if (num1 === 0 || num2 === 0) {
-    result = 1;
+  if (num1 === 0) {
+    result = num2;
+  } else if (num2 === 0) {
+    result = num1;
   }
   while (num1 !== 0 && num2 !== 0) {
     if (num1 > num2) {
