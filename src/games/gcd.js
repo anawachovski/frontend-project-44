@@ -1,32 +1,39 @@
 import getRandomNumber from '../utils.js';
-import brainBasisGame from '../index.js';
+import startBasisGame from '../index.js';
 
-export default function startGcdGame() {
-  const description = 'Find the greatest common divisor of given numbers.';
+const description = 'Find the greatest common divisor of given numbers.';
 
-  const rounds = () => {
-    let num1 = getRandomNumber(0, 100);
-    let num2 = getRandomNumber(0, 100);
+const getGreatestCommonDivisor = (number1, number2) => {
+  let num1 = number1;
+  let num2 = number2;
+  let result = 0;
 
-    const question = `${num1} ${num2}`;
-
-    let result = 0;
-    if (num1 === 0 || num2 === 0) {
-      result = 1;
+  if (num1 === 0 || num2 === 0) {
+    result = 1;
+  }
+  while (num1 !== 0 && num2 !== 0) {
+    if (num1 > num2) {
+      num1 %= num2;
+    } else {
+      num2 %= num1;
     }
+    result = num1 + num2;
+  }
+  return result;
+};
 
-    while (num1 !== 0 && num2 !== 0) {
-      if (num1 > num2) {
-        num1 %= num2;
-      } else {
-        num2 %= num1;
-      }
+const getGameRounds = () => {
+  const num1 = getRandomNumber(0, 100);
+  const num2 = getRandomNumber(0, 100);
 
-      result = num1 + num2;
-    }
+  const question = `${num1} ${num2}`;
+  // const result = getGreatestCommonDivisor(num1, num2);
+  const currentAnswer = String(getGreatestCommonDivisor(num1, num2));
+  return [question, currentAnswer];
+};
 
-    return [question, String(result)];
-  };
+const startGcdGame = () => {
+  startBasisGame(description, getGameRounds);
+};
 
-  brainBasisGame(description, rounds);
-}
+export default startGcdGame;

@@ -1,28 +1,27 @@
 import getRandomNumber from '../utils.js';
-import brainBasisGame from '../index.js';
+import startBasisGame from '../index.js';
 
-export default function startEvenGame() {
-  const description = 'Answer "yes" if the number is even, otherwise answer "no".';
+const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-  const isEvenNum = (num) => {
-    let result = '';
+const isEvenNum = (num) => {
+  let result;
+  if (num % 2 === 0) {
+    result = true;
+  }
 
-    if (num % 2 === 0) {
-      result = true;
-    }
+  return result;
+};
 
-    return result;
-  };
+const getGameRounds = () => {
+  const randomInt = getRandomNumber(0, 10001);
+  const question = `${randomInt}`;
+  const correctAnswer = isEvenNum(randomInt) ? 'yes' : 'no';
 
-  const rounds = () => {
-    const randomInt = getRandomNumber(0, 10001);
+  return [question, correctAnswer];
+};
 
-    const question = `${randomInt}`;
+const startEvenGame = () => {
+  startBasisGame(description, getGameRounds);
+};
 
-    const correctAnswer = isEvenNum(randomInt) ? 'yes' : 'no';
-
-    return [question, correctAnswer];
-  };
-
-  brainBasisGame(description, rounds);
-}
+export default startEvenGame;
