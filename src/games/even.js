@@ -4,9 +4,9 @@ import startBasisGame from '../index.js';
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const isEvenNum = (num) => {
-  let result;
-  if (num % 2 === 0) {
-    result = true;
+  let result = 1;
+  if (num % 2 !== 0) {
+    result = false;
   }
 
   return result;
